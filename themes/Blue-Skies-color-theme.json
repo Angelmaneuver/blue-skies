@@ -98,6 +98,8 @@
 
     // Status Bar colors
     "statusBar.background": "#ffffff00",
+    "statusBar.debuggingBackground": "#ffffff00",
+    "statusBar.noFolderBackground": "#ffffff00",
 
     // Title Bar colors
     "titleBar.activeBackground": "#00144aA0",
