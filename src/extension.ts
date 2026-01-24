@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-import { install, uninstall } from './includes';
+import { install, uninstall, sleep, check } from './includes';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -9,6 +9,13 @@ export function activate(context: vscode.ExtensionContext) {
     }),
     vscode.commands.registerCommand('blue-skies.uninstall', async () => {
       await uninstall();
+    }),
+    vscode.workspace.onDidChangeConfiguration(async (event) => {
+      if (event.affectsConfiguration('workbench.colorTheme')) {
+        await sleep(100);
+
+        await check();
+      }
     })
   );
 }

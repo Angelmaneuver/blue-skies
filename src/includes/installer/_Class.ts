@@ -15,6 +15,14 @@ class Installer {
 
   constructor(private readonly destination: string) {}
 
+  public get isInstalled(): boolean {
+    const file = new File(this.destination);
+
+    const match = file.content.toString().match(Installer.pattern) ?? [];
+
+    return match.length > 0;
+  }
+
   public async install(): Promise<void> {
     return this.write(this.templatization(css));
   }
