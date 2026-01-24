@@ -1,0 +1,533 @@
+:root {
+  --blue-skies-panel-background: #00133eff;
+  --blue-skies-menu-background: #00144a50;
+  --blue-skies-editor-current-line-exact-background: #70b3e315;
+  --blue-skies-hover-background: #00144a50;
+  --blue-skies-quickinput-background: #00144a50;
+  --blue-skies-context-view-background: #00133eff;
+  --blue-skies-border-shadow: #ceffffff;
+  --blue-skies-headline-shadow: #ceffffff;
+  --blue-skies-action-icon-shadow: #70b3e3ff;
+  --blue-skies-inputbox-shadow: #70b3e3ff;
+  --blue-skies-checkbox-shadow: #70b3e3ff;
+  --blue-skies-badge-shadow: #70b3e3ff;
+  --blue-skies-indicator: #fffdf6ff;
+  --blue-skies-indicator-shadow: #70b3e3ff;
+  --blue-skies-list-focus-outline-shadow: #70b3e3ff;
+  --blue-skies-line-number-shadow: #70b3e3ff;
+}
+
+body {
+  > div.Angelmaneuver-blue-skies-theme-themes-Blue-Skies-color-theme-json {
+    /**
+     * 背景色
+     */
+    // 最背面
+    background: radial-gradient(
+      ellipse at top right,
+      var(--vscode-panel-background) 50%,
+      var(--blue-skies-panel-background)
+    );
+
+    // タイトルバー、パネル
+    div[id^='workbench.parts.titlebar'],
+    div[id^='workbench.parts.panel'] {
+      background-color: transparent !important;
+    }
+
+    // コンテキストビュー
+    .monaco-component.context-view {
+      // セレクトボックス
+      > .monaco-select-box-dropdown-container {
+        background: radial-gradient(
+          ellipse at top right,
+          var(--vscode-dropdown-background),
+          var(--blue-skies-context-view-background)
+        ) !important;
+      }
+
+      // メニュー
+      &.monaco-menu-container .monaco-scrollable-element,
+      .monaco-hover {
+        background: radial-gradient(
+          ellipse at top right,
+          var(--blue-skies-menu-background),
+          var(--blue-skies-context-view-background)
+        ) !important;
+      }
+    }
+
+    // ホバー
+    .monaco-hover {
+      background: radial-gradient(
+        ellipse at top right,
+        var(--blue-skies-hover-background),
+        var(--blue-skies-context-view-background)
+      ) !important;
+    }
+
+    // クィックインプット
+    .editor-widget.suggest-widget,
+    .quick-input-widget {
+      background: radial-gradient(
+        ellipse at top right,
+        var(--blue-skies-quickinput-background),
+        var(--blue-skies-context-view-background)
+      ) !important;
+
+      box-shadow: 0 0 5px !important;
+    }
+
+    /**
+     * 角丸設定
+     */
+    // コンテキストビュー
+    .monaco-component.context-view {
+      > .monaco-select-box-dropdown-container,
+      &.monaco-menu-container .monaco-scrollable-element,
+      .monaco-hover {
+        border-radius: 0;
+      }
+    }
+
+    /**
+     * 見出し
+     */
+    div[class*='welcome']div[class*='title'],
+    :not(.monaco-icon-label)[class*='-label'] {
+      text-shadow: 0 0 5px var(--blue-skies-headline-shadow);
+    }
+
+    h2,
+    h3,
+    [class*='caption'],
+    div[class*='description'] {
+      text-shadow: 5px 5px 15px;
+    }
+
+    /**
+     * リンク
+     */
+    .monaco-link,
+    [class*='link'] {
+      text-shadow: 0 0 5px;
+    }
+
+    /**
+     * 画像
+     */
+    img {
+      filter: drop-shadow(0 0 5px);
+    }
+
+    /**
+     * アイコン
+     */
+    .codicon {
+      &.action-label {
+        &:not(.separator)::before {
+          filter: drop-shadow(var(--blue-skies-action-icon-shadow) 0 0 5px);
+        }
+
+        &.separator {
+          filter: drop-shadow(var(--blue-skies-border-shadow) 0 0 5px);
+        }
+      }
+
+      &.codicon-extensions-verified-publisher {
+        &::before {
+          filter: drop-shadow(0 0 5px);
+        }
+      }
+
+      &:not(.action-label, .codicon-extensions-verified-publisher) {
+        &::before {
+          filter: drop-shadow(0 0 5px);
+        }
+      }
+    }
+
+    .monaco-icon-label {
+      &::before {
+        filter: drop-shadow(0 0 3px);
+      }
+    }
+
+    .action-item:has(.uri-icon) {
+      filter: drop-shadow(var(--blue-skies-action-icon-shadow) 0 0 5px);
+    }
+
+    /**
+     * ボタン
+     */
+    .monaco-button {
+      &.monaco-text-button {
+        border-style: inset;
+        filter: drop-shadow(0 0 5px);
+
+        &:hover {
+          filter: drop-shadow(0 0 10px);
+        }
+      }
+    }
+
+    /**
+     * セレクトボックス
+     */
+    &:not(
+      :has(
+        > .monaco-component.context-view
+          > .monaco-select-box-dropdown-container.visible
+      )
+    ) {
+      .action-item:has(.monaco-select-box),
+      select.monaco-select-box {
+        box-shadow: 0 0 5px;
+      }
+    }
+
+    /**
+     * チェックボックス
+     */
+    .monaco-custom-toggle[role='checkbox'] {
+      &.codicon-check {
+        box-shadow: inset 0 0 5px 0px var(--blue-skies-checkbox-shadow);
+      }
+
+      &[aria-checked='false']::before {
+        opacity: 0.6;
+      }
+    }
+
+    /**
+     * 入力ボックス
+     */
+    .monaco-inputbox,
+    [class*='input-container'],
+    [class*='editor-container'] {
+      box-shadow: inset 0 0 5px 0px var(--blue-skies-inputbox-shadow);
+
+      textarea.input {
+        text-shadow: 0 0 5px;
+      }
+    }
+
+    .monaco-inputbox {
+      padding-left: 0.25rem;
+    }
+
+    /**
+     * バッジ
+     */
+    .activitybar
+      > .content
+      :not(.monaco-menu)
+      > .monaco-action-bar
+      .action-item:hover
+      .profile-text-overlay {
+      color: var(--vscode-profileBadge-foreground);
+    }
+
+    [class*='badge'] {
+      text-shadow: 0 0 5px var(--blue-skies-badge-shadow);
+      filter: drop-shadow(var(--blue-skies-badge-shadow) 0 0 5px);
+    }
+
+    /**
+     * プログレスバー
+     */
+    .monaco-progress-container .progress-bit {
+      height: 1px;
+      box-shadow: 0 2px 20px 5px;
+    }
+
+    /**
+     * インジケータ―
+     */
+    .content :not(.monaco-menu),
+    .pane-composite-part
+      > .header-or-footer
+      > .composite-bar-container
+      > .composite-bar,
+    .part.auxiliarybar.pane-composite-part
+      > .title
+      > .composite-bar-container
+      > .composite-bar,
+    .part.panel.pane-composite-part
+      > .title
+      > .composite-bar-container
+      > .composite-bar,
+    .extension-editor > .body > .navbar {
+      > .monaco-action-bar {
+        .action-item {
+          &.checked {
+            .active-item-indicator {
+              box-shadow: inset 0 0 5px 0px var(--blue-skies-indicator-shadow);
+
+              &:before {
+                box-shadow: 0 0 20px 5px var(--blue-skies-indicator-shadow);
+                border-color: var(--blue-skies-indicator);
+              }
+            }
+          }
+
+          .action-label.checked {
+            box-shadow: inset 0 0 5px 0px var(--blue-skies-indicator-shadow);
+
+            &:before {
+              box-shadow: 0 0 20px 5px var(--blue-skies-indicator-shadow);
+              border-color: var(--blue-skies-indicator);
+            }
+          }
+        }
+      }
+    }
+
+    .monaco-list {
+      [class$='-modified-indicator'] {
+        width: 0 !important;
+        border-color: var(--blue-skies-indicator) !important;
+        box-shadow: 0 0 20px 5px var(--blue-skies-indicator-shadow);
+      }
+    }
+
+    .monaco-component.context-view {
+      .monaco-menu > .monaco-action-bar {
+        .action-item {
+          &.focused {
+            position: relative;
+            box-shadow: inset 0 0 5px 0px var(--blue-skies-indicator-shadow);
+
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              border-left: 2px solid;
+              box-shadow: inset 6px 0px 15px -4px
+                var(--blue-skies-indicator-shadow);
+            }
+          }
+        }
+      }
+    }
+
+    /**
+     * リスト、メニュー
+     */
+    .monaco-list,
+    .monaco-menu {
+      &.mouse-support.last-focused.selection-none::before {
+        outline: none;
+      }
+    }
+
+    .action-item.disabled {
+      opacity: 0.4;
+    }
+
+    :not(.notifications-list-container) > .monaco-list,
+    .monaco-menu {
+      [class*='monaco-decoration-itemBadge']::after {
+        text-shadow: 0 0 5px var(--blue-skies-badge-shadow);
+      }
+
+      .monaco-list-row:not(.focused.selected :has(.monaco-inputbox)):not(
+          .force-no-hover
+        ) {
+        .monaco-tl-indent > .indent-guide.active {
+          box-shadow: inset 6px 0 0 -5px
+            var(--blue-skies-list-focus-outline-shadow);
+        }
+
+        &:hover,
+        &.focused,
+        &.selected {
+          box-shadow: inset 0 0 5px 0px
+            var(--blue-skies-list-focus-outline-shadow);
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            border-left: 2px solid;
+            box-shadow: 0 0 20px 5px var(--blue-skies-list-focus-outline-shadow);
+          }
+        }
+      }
+
+      .monaco-action-bar.vertical {
+        .action-item:not(:has(> .action-label.separator)) {
+          position: relative;
+
+          &:hover,
+          &.focused,
+          &.selected {
+            box-shadow: inset 0 0 5px 0px
+              var(--blue-skies-list-focus-outline-shadow);
+
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 0;
+              border-left: 2px solid;
+              box-shadow: 0 0 20px 5px
+                var(--blue-skies-list-focus-outline-shadow);
+            }
+          }
+        }
+      }
+    }
+
+    /**
+     * サイドバー
+     */
+    .part.sidebar,
+    .part.auxiliarybar {
+      > .title {
+        > .title-label h2 {
+          text-shadow: 0 0 5px var(--blue-skies-headline-shadow);
+        }
+
+        > .title-actions .action-label::before {
+          text-shadow: 0 0 5px var(--blue-skies-headline-shadow);
+        }
+      }
+
+      h4,
+      h5,
+      h6 {
+        text-shadow: 0 0 5px var(--blue-skies-headline-shadow);
+      }
+
+      p,
+      span,
+      div.ellipsis {
+        &:not(.codicon, :has(.monaco-link)) {
+          text-shadow: 0 0 5px;
+        }
+      }
+    }
+
+    .monaco-pane-view {
+      .pane {
+        > .pane-header {
+          h3.title {
+            text-shadow: 0 0 5px var(--blue-skies-headline-shadow);
+          }
+        }
+      }
+    }
+
+    /**
+     * エディター
+     */
+    .part.editor {
+      div[role^='listitem'] > div,
+      div[class*='title'],
+      div[class*='name'],
+      div[class*='link'],
+      p,
+      span,
+      a {
+        text-shadow: 2px 2px 15px;
+      }
+
+      > .content
+        .editor-group-container.active
+        > .title
+        .tabs-container
+        > .tab {
+        &.active {
+          box-shadow: inset 0 0 5px 0px
+            var(--blue-skies-list-focus-outline-shadow);
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: calc(100% - 2px);
+            width: 100%;
+            border-bottom: 2px solid;
+            box-shadow: inset 0px -8px 15px -3px
+              var(--blue-skies-list-focus-outline-shadow);
+          }
+        }
+      }
+    }
+
+    .monaco-editor {
+      .margin-view-overlays .line-numbers {
+        text-shadow: 0 0 5px var(--blue-skies-line-number-shadow);
+      }
+
+      .view-overlays .current-line-exact {
+        border: none;
+        background-color: var(
+          --blue-skies-editor-current-line-exact-background
+        );
+      }
+
+      .lines-content > .view-lines > .view-line span[class*='mtk'] {
+        text-shadow: 5px 5px 15px;
+      }
+    }
+
+    .monaco-editor .lines-content .core-guide-indent.indent-active {
+      box-shadow: inset 6px 0 0 -5px var(--blue-skies-list-focus-outline-shadow);
+    }
+
+    /**
+     * パネル
+     */
+    .part.panel {
+      p,
+      span {
+        &:not(.codicon, :has(.monaco-link)) {
+          text-shadow: 0 0 5px;
+        }
+      }
+    }
+
+    /**
+     * タイトルバー
+     */
+    .part.titlebar {
+      [class*='title'] {
+        text-shadow: 0 0 5px var(--blue-skies-headline-shadow);
+      }
+    }
+
+    /**
+     * 通知
+     */
+    .notifications-toasts {
+      span {
+        text-shadow: 0 0 5px;
+      }
+
+      .notification-toast-container {
+        .notification-toast {
+          box-shadow: 0 0 5px !important;
+
+          .notifications-list-container {
+            background: radial-gradient(
+              ellipse at top right,
+              var(--vscode-notifications-background),
+              var(--blue-skies-context-view-background)
+            );
+          }
+        }
+      }
+    }
+  }
+}

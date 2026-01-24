@@ -1,0 +1,91 @@
+{
+  "name": "blue-skies-theme",
+  "displayName": "Blue Skies Theme",
+  "description": "A wide blue skies theme.",
+  "publisher": "Angelmaneuver",
+  "preview": true,
+  "version": "0.0.1",
+  "homepage": "https://github.com/Angelmaneuver/blue-skies/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Angelmaneuver/blue-skies.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Angelmaneuver/blue-skies/issues"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/Angelmaneuver"
+  },
+  "engines": {
+    "vscode": "^1.108.1"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "l10n": "./l10n",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Blue Skies",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Blue-Skies-color-theme.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "blue-skies.install",
+        "category": "Blue Skies Theme",
+        "title": "%blueSkies.install.title%",
+        "shortTitle": "%blueSkies.install.shortTitle%"
+      },
+      {
+        "command": "blue-skies.uninstall",
+        "category": "Blue Skies Theme",
+        "title": "%blueSkies.uninstall.title%",
+        "shortTitle": "%blueSkies.uninstall.shortTitle%"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "yarn run check-types && yarn run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "yarn run check-types && yarn run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "sass": "yarn run gulp",
+    "generate": "npx @vscode/l10n-dev export -o ./l10n ./src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "25.x",
+    "@types/vscode": "^1.108.1",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.39.2",
+    "gulp": "^5.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-notify": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-watch": "^5.0.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.97.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.1"
+  },
+  "dependencies": {
+    "@vscode/l10n": "^0.0.18"
+  }
+}

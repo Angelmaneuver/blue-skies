@@ -1,0 +1,17 @@
+.vscode/**
+.vscode-test/**
+out/**
+node_modules/**
+src/**
+.gitattributes
+.gitignore
+.prettierignore
+.prettierrc.yml
+.yarnrc
+aircraft-theme.code-workspace
+esbuild.js
+**/tsconfig.json
+**/eslint.config.mjs
+**/*.map
+**/*.ts
+**/.vscode-test.*
