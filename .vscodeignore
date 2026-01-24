@@ -1,5 +1,6 @@
 .vscode/**
 .vscode-test/**
+assets/**
 out/**
 node_modules/**
 src/**
@@ -8,10 +9,11 @@ src/**
 .prettierignore
 .prettierrc.yml
 .yarnrc
-aircraft-theme.code-workspace
+blue-skies-theme.code-workspace
 esbuild.js
 **/tsconfig.json
 **/eslint.config.mjs
 **/*.map
 **/*.ts
 **/.vscode-test.*
+**/gulpfile.js
