@@ -4,6 +4,7 @@
   --blue-skies-editor-current-line-exact-background: #70b3e315;
   --blue-skies-hover-background: #00144a50;
   --blue-skies-quickinput-background: #00144a50;
+  --blue-skies-debugtoolbar-background: #00144a50;
   --blue-skies-context-view-background: #00133eff;
   --blue-skies-border-shadow: #ceffffff;
   --blue-skies-headline-shadow: #ceffffff;
@@ -76,6 +77,15 @@ body {
       ) !important;
 
       box-shadow: 0 0 5px !important;
+    }
+
+    // デバッグツールバー
+    .debug-toolbar {
+      background: radial-gradient(
+        ellipse at top right,
+        var(--blue-skies-debugtoolbar-background),
+        var(--blue-skies-context-view-background)
+      ) !important;
     }
 
     /**
