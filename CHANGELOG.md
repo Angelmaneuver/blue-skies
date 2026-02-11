@@ -1,9 +1,12 @@
 # Change Log
 
+### 0.0.4
+
+- If the Blue Sky theme is not installed when VScode launches, it has been fixed to revert to the default theme
+
 ### 0.0.3
 
 - Fix for the issue where no background color is set for the debug toolbar
-- If the Blue Sky theme is not installed when VScode launches, it has been fixed to revert to the default theme
 
 ## 0.0.2
 
