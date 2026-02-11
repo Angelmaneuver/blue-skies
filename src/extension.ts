@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 import { install, uninstall, sleep, check } from './includes';
 
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand('blue-skies.install', async () => {
       await install();
@@ -18,6 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
       }
     })
   );
+
+  await check();
 }
 
 export function deactivate() {}
