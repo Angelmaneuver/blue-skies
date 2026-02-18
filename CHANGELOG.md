@@ -1,5 +1,9 @@
 # Change Log
 
+### 0.0.5
+
+- Fix default colors for the activity bar and sidebar
+
 ### 0.0.4
 
 - If the Blue Sky theme is not installed when VScode launches, it has been fixed to revert to the default theme

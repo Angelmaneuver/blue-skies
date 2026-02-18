@@ -53,7 +53,7 @@
     "tree.indentGuidesStroke": "#ceffff50",
 
     // Activity Bar
-    "activityBar.background": "#ffffff00",
+    "activityBar.background": "#00144a00",
     "activityBar.foreground": "#e6ffffff",
     "activityBar.inactiveForeground": "#e6ffffff",
     "activityBar.border": "#ceffff50",
@@ -65,7 +65,7 @@
     "profileBadge.foreground": "#000404ff",
 
     // Side bar
-    "sideBar.background": "#ffffff00",
+    "sideBar.background": "#00144a00",
     "sideBar.foreground": "#e6ffffff",
     "sideBar.border": "#ceffff50",
     "sideBarTitle.foreground": "#e6ffffff",
