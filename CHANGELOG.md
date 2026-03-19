@@ -3,6 +3,7 @@
 ### 0.0.5
 
 - Fix default colors for the activity bar and sidebar
+- Fix default colors for the list.hoverForeground
 
 ### 0.0.4
 
@@ -12,10 +13,10 @@
 
 - Fix for the issue where no background color is set for the debug toolbar
 
-## 0.0.2
+### 0.0.2
 
 - Fixed to revert to the default theme when it becomes the blue skies theme active while not installed
 
-## 0.0.1
+### 0.0.1
 
 - Initial release
