@@ -1,12 +1,16 @@
 import * as path from 'path';
 
-import { window, l10n } from 'vscode';
+import { window, l10n, env } from 'vscode';
 
 import Installer, { isInstallable, getTarget } from './installer';
 import { WorkbenchSetting } from './settings';
 import error from './_error';
 
 async function check(): Promise<void> {
+  if (env.remoteName !== undefined) {
+    return;
+  }
+
   const workbench = new WorkbenchSetting();
 
   if (workbench.colorThemeName !== 'Blue Skies') {

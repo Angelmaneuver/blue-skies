@@ -1,5 +1,9 @@
 # Change Log
 
+### 0.0.6
+
+- Fixed to prevent the installable check when working remotely
+
 ### 0.0.5
 
 - Fix default colors for the activity bar and sidebar
